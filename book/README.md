@@ -6,11 +6,12 @@
 
 ## Create Raw Objects
 This is used to avoid collissions between prototype keys and implementations as also to save overhead when enum 
-```
+```ts
 const rawObjectToStoreData = Object.create(null); // has no methods assigned to it!
 ```
-usage of such an object
-```
+
+usage of such an object as it has no own methods. 
+```ts
 const { toString, hasOwnProperty } = Object.prototype;
 toString.call(rawObjectToStoreData);
 hasOwnProperty.call(rawObjectToStoreData, 'prop')
@@ -32,7 +33,7 @@ let a = { prop: "hello" };
 let b = { prop: "hello" } as const;
 ```
 
-In Stealify / ECMAScript / JavaScript files, you use type assertions to achieve the same thing. example.js
+In Stealify, you use type assertions to achieve the same thing. example.js
 ```ts
 // type is { prop: string }
 let a = { prop: "hello" };
@@ -54,7 +55,7 @@ in TypeScript: example.ts
 type Foo<T extends string | number = number> = { prop: T };
 ```
 
-can be rewritten as the following @typedef declaration in Stealify / ECMAScript / JavaScript: example.js
+can be rewritten as the following @typedef declaration in Stealify: example.js
 ```ts
 /**
  * @template {string | number} [T=number]
