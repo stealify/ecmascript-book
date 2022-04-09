@@ -1,5 +1,9 @@
 ## First Iteration (None Spellchecked written by a german hustler)
 
+## Preamble
+- Stealify always references to Stealify / ECMAScript / JavaScript so .js files
+
+
 ## Create Raw Objects
 This is used to avoid collissions between prototype keys and implementations as also to save overhead when enum 
 ```
@@ -19,7 +23,7 @@ only exempt you do low level stuff with your Engine in a CJS context to shim the
 
 ## type assertions (Typecast)
 
-In TypeScript, you can do const assertions. via writting const after a literal.
+In TypeScript, you can do const assertions. via writting const after a literal. example.ts
 ```ts
 // type is { prop: string }
 let a = { prop: "hello" };
@@ -28,7 +32,7 @@ let a = { prop: "hello" };
 let b = { prop: "hello" } as const;
 ```
 
-In Stealify/ECMAScript/JavaScript files, you use type assertions to achieve the same thing.
+In Stealify / ECMAScript / JavaScript files, you use type assertions to achieve the same thing. example.js
 ```ts
 // type is { prop: string }
 let a = { prop: "hello" };
@@ -38,19 +42,19 @@ let b = /** @type {const} */ ({ prop: "hello" });
 ```
 
 type assertions comments start with ```/** @type {TheTypeWeWant} */``` and are followed by a parenthesized expression ```(someExpression)```
-this is also often referenced as Typecasting.
+this is also often referenced as Typecasting. example.js
 ```ts
 /** @type {TheTypeWeWantTypecast} */ (someExpression)
 ```
 
 ## default type arguments 
 
-in TypeScript:
+in TypeScript: example.ts
 ```ts
 type Foo<T extends string | number = number> = { prop: T };
 ```
 
-can be rewritten as the following @typedef declaration in JavaScript:
+can be rewritten as the following @typedef declaration in Stealify / ECMAScript / JavaScript: example.js
 ```ts
 /**
  * @template {string | number} [T=number]
