@@ -2,3 +2,4 @@
 
 - https://github.com/lebab/lebab/issues/313 reserved keyword do work in some cases and do not error when directly assigned on exports in esModules
 - https://github.com/airbnb/ts-migrate a anti pattern do never migrate to .ts files it gives you nothing but headache! only use the Typechecker Part of Typescript it is not a good Compiler most of the time. 
+- Typescript for bundlers! You should most best use typescript classic resolve without additional types fild in package.json and then reference absolute file pathes. Also always generate a project local folder of flat dependencies ```./modules/**/*{.d.ts,.js}``` js content ```export * from 'node_modules/module_name/entrypoint.js``` d.ts content ```export * from 'node_modules/module_name/types.d.ts``` that is the so called classic moduleResolve mode of typescript and works most best even for bundlers and would allow to even bundle type definitions in case that you got no time to convert them. 
