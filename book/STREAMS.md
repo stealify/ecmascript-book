@@ -71,7 +71,44 @@ const subscribe = async (stream, callback) => {
     callback(event);
   }
 };
+
+const defferedPromise = () => {
+  const handlers = {};
+  const promise = new Promise((resolve,reject)=>Object.assig(handlers, { resolve, reject }));
+  return Object.assign(promise, handlers);
+}
+
+const createEventEmitter = () => {
+ 
+   const callbackMaps = {};
+     
+   return {
+      addEventListner(event, callback) {
+        if (!callbackMaps[event]) {
+          callbackMaps[event] = new Map();
+        }
+        callbackMaps[event].set(callback, callback);
+      },
+      removeEventListner(event, callback) {
+        callbackMaps[event].delete(callback);
+        if (callbackMaps[event].length === 0) {
+          delete callbackMaps[event];
+        }
+      },
+      emit(event, val) {
+         if (callbackMaps[event]) {
+           callbackMaps[event].forEach(((callback) => callback(val))
+         }
+      },
+   }
+}
+
+const tee = (stream) => {
+  const source = stream;
+  let [promise1,promise2] = [defferedPromise(),defferedPromise()]
+  subscribe(stream,() => {}
+  return {}
+}
 ```
 
-as everything is async in Stealify it is good to be familar with the most generic stream constructs. They are used to form so called observables so you can see it
-as your own react vue or similar. 
+as everything is async in Stealify it is good to be familar with the most generic stream constructs. They are used to form so called observables so you can see it as your own react vue or similar.
