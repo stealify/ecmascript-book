@@ -21,8 +21,8 @@ let a = { prop: "hello" };
 let b = /** @type {const} */ ({ prop: "hello" });
 ```
 
-type assertions comments start with ```/** @type {TheTypeWeWant} */``` and are followed by a parenthesized expression:
-this is also often called Typecasting 
+type assertions comments start with ```/** @type {TheTypeWeWant} */``` and are followed by a parenthesized expression ```(someExpression)```
+this is also often referenced as Typecasting.
 ```ts
 /** @type {TheTypeWeWantTypecast} */ (someExpression)
 ```
