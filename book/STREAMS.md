@@ -71,11 +71,14 @@ const subscribe = async (stream, callback) => {
     callback(event);
   }
 };
-
+// Not Working.
 const defferedPromise = () => {
   const handlers = {};
   const promise = new Promise((resolve,reject)=>Object.assig(handlers, { resolve, reject }));
-  return Object.assign(promise, handlers);
+  return Object.assign(promise, handlers, { 
+    resolve: (val) => { handlers.resolve(val); return promise; }
+    reject: (val) => { handlers.reject(val); return promise; },
+   });
 }
 
 const createEventEmitter = () => {
