@@ -1,5 +1,9 @@
 ## First Iteration (None Spellchecked written by a german hustler)
 
+## Diffrence between the function keyword and => fat arrow functions
+Its importent to understand that functions created with the function keyword do create a scope with a so called this property which should get avoided anyway to keep the code PURE which is nice for performance and modularity as also readability you almost never want to use the function keyword
+only exempt you do low level stuff with your Engine in a CJS context to shim the Environment or BootStrap Environments like Electron. 
+
 
 ## type assertions (Typecast)
 
