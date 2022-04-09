@@ -42,7 +42,7 @@ can be rewritten as the following @typedef declaration in JavaScript:
  * @property prop {T}
  */
 ```
-or
+or less verbose
 ```ts
 /**
  * @template {string | number} [T=number]
