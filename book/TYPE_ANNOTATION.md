@@ -526,6 +526,22 @@ class SortableSet extends Set {
 ```
 
 Note that `@extends` only works with classes. Currently, there is no way for a constructor function to extend a class.
+but you can always return a Onion type like this
+
+```
+/** @constructor **/
+const myConstFnThatExtends = () => {};
+
+/** this is a wrapper that simply tells typescript that the before defined class extends something we always use the wrapper then in our code */
+const getAsExtended = (...args) => /** @type { typeof myConstFnThatExtends & typeof extendedClass} **/ (new myConstFnThatExtends(...args))
+```
+
+Importent Note `favor composition over inharitance` 
+
+```
+Object.assign() // is the magic tool for type composition and also Object Composition without prototype chain.
+```
+
 
 ### `@implements`
 
